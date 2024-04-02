@@ -12,3 +12,24 @@ datasource db {
   provider = "mongodb"
   url      = env("DATABASE_URL")
 }
+
+model User {
+  id         String    @id @default(auto()) @map("_id") @db.ObjectId
+  name       String
+  email      String    @unique
+  password   String
+  created_at DateTime? @default(now())
+  updated_at DateTime? @default(now())
+  todos      Todo[]
+}
+
+model Todo {
+  id         String    @id @default(auto()) @map("_id") @db.ObjectId
+  userId     String    @db.ObjectId
+  title      String
+  completed  Boolean
+  created_at DateTime? @default(now())
+  updated_at DateTime? @default(now())
+
+  user       User      @relation(fields: [userId], references: [id])
+}
