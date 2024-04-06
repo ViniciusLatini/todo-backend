@@ -7,6 +7,7 @@ import { getAllUsers } from "./routes/user/get-all";
 import { updateUser } from "./routes/user/update";
 import { createTodo } from "./routes/todo/create-new";
 import { deleteTodo } from "./routes/todo/delete";
+import { updateTodo } from "./routes/todo/update";
 
 const app = fastify({ logger: true });
 
@@ -18,6 +19,7 @@ app.register(updateUser);
 
 app.register(createTodo);
 app.register(deleteTodo);
+app.register(updateTodo);
 
 app.listen({ port: 3333 }).then(() => {
   console.log("HTTP server running!");
