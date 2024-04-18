@@ -9,8 +9,8 @@ generator client {
 }
 
 datasource db {
-  provider = "mongodb"
-  url      = env("DATABASE_URL")
+  provider     = "mongodb"
+  url          = env("DATABASE_URL")
 }
 
 model User {
@@ -31,5 +31,5 @@ model Todo {
   created_at DateTime? @default(now())
   updated_at DateTime? @default(now())
 
-  user       User      @relation(fields: [userId], references: [id])
+  user User @relation(fields: [userId], references: [id])
 }
