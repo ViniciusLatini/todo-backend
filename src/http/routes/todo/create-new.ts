@@ -20,6 +20,14 @@ export async function createTodo(app: FastifyInstance) {
           },
           completed: false,
         },
+        include: {
+          user: {
+            select: {
+              id: true,
+              name: true,
+            },
+          },
+        },
       });
 
       return res.status(201).send(todo);
