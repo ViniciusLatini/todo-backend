@@ -11,6 +11,7 @@ import { updateTodo } from "./routes/todo/update";
 import { getUserTodos } from "./routes/todo/get-user-todo";
 import { auth } from "./routes/user/auth";
 import { getAllTodos } from "./routes/todo/get-all";
+import { getTodoStatus } from "./routes/todo/stats";
 
 const app = fastify({ logger: true });
 
@@ -25,6 +26,7 @@ app.register(deleteTodo);
 app.register(updateTodo);
 app.register(getUserTodos);
 app.register(getAllTodos);
+app.register(getTodoStatus)
 
 app.register(auth);
 
