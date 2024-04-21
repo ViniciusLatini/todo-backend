@@ -29,7 +29,8 @@ app.register(getAllTodos);
 app.register(getTodoStatus)
 
 app.register(auth);
+const port = process.env.PORT || 3000;
 
-app.listen({ port: 3333 }).then(() => {
+app.listen({port: port as number}).then(() => {
   console.log("HTTP server running!");
 });
