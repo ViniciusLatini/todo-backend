@@ -7,6 +7,13 @@ export async function getUserById(app: FastifyInstance) {
       const { id } = req.params as { id: string };
       const user = await prisma.user.findUnique({
         where: { id },
+        select: {
+          id: true,
+          name: true,
+          email: true,
+          created_at: true,
+          updated_at: true,
+        },
       });
 
       if (!user) return res.status(404).send({ error: "User not found" });
