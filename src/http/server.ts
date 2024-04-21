@@ -31,6 +31,6 @@ app.register(getTodoStatus)
 app.register(auth);
 const port = process.env.PORT || 3000;
 
-app.listen({port: port as number}).then(() => {
+app.listen({ port: port as number, host: "0.0.0.0" }).then(() => {
   console.log("HTTP server running!");
 });
